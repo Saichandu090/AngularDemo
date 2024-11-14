@@ -1,36 +1,25 @@
-<h1>Welcome to {{hotelName}}</h1> <!-- This is Interpolation Data Binding -->
-
+<!-- <h1>Welcome to {{hotelName}}</h1> This is Interpolation Data Binding -->
+<hinv-header></hinv-header>
 <div [hidden]="hideRooms"> <!-- Property Binding-->
     No of Rooms available :
     <div [ngStyle]="{'color':rooms.availableRooms?'green':'red'}" [innerText]="noOfRooms"></div>
 </div>
 
+<!-- {{roomsList | json}} This is used to display the JSON data in the browser -->
 <!-- {{rooms.availableRooms ?? 'No Rooms' }}  rooms.availableRooms is a 'null collision' Operator -->
+
+<div *ngIf="selectedRoom">
+    {{selectedRoom | json}}
+</div>
+
+<div>
+    <button (click)="addRoom()">Add Room</button>
+</div>
 
 <div *ngIf="rooms.availableRooms>0 "> <!-- This is called as Optional Channing like an If condition to display-->
     <!-- ngIf,ngFor and ... are built in directives to change the behaviour of DOM Elements,You need to import the componentModule in ts file of your component-->
-    Rooms List:
-    <!-- {{roomsList}} -->
-    <table>
-        <tr>
-            <td>Index</td>
-            <th>Even/Odd</th>
-            <th>Room Number</th>
-            <th>Room Type</th>
-            <th>Room Amenities</th>
-            <th>Room Price</th>
-            <th>Checkin Time</th>
-        </tr>
-        <tr [ngClass]="e?'even':'odd'" *ngFor="let room of roomsList; let e =even;let o=odd; let i=index">
-            <td>{{i}}</td>
-            <td>{{ e ?"Even" : "Odd"}}</td>
-            <td>{{room.roomNumber}}</td>
-            <td>{{room.roomType}}</td>
-            <td>{{room.amenities}}</td>
-            <td>{{room.price}}</td>
-            <td>{{room.checkInTime}}</td>
-        </tr>
-    </table>
+   <hinv-roomslist [rooms]="roomsList" [title]="title"
+    (selectedRoom)="selectRoom($event)"></hinv-roomslist>
 </div>
 
 
