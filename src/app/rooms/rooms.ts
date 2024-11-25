@@ -1,11 +1,11 @@
 export interface Room {
-    totalRooms: number;  //Making them Optional 
+    totalRooms: number;   
     availableRooms: number;
     bookedRooms: number;
 }
 
 export interface RoomList{
-    roomNumber:number;
+    roomNumber?:number;
     roomType:string;
     amenities:string;
     price:number;

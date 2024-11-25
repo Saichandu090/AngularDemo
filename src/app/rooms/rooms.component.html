@@ -1,5 +1,8 @@
 <!-- <h1>Welcome to {{hotelName}}</h1> This is Interpolation Data Binding -->
 <hinv-header></hinv-header>
+<hinv-header></hinv-header>
+<hinv-header></hinv-header>
+<hinv-header></hinv-header>
 <div [hidden]="hideRooms"> <!-- Property Binding-->
     No of Rooms available :
     <div [ngStyle]="{'color':rooms.availableRooms?'green':'red'}" [innerText]="noOfRooms"></div>
@@ -16,7 +19,7 @@
     <button (click)="addRoom()">Add Room</button>
 </div>
 
-<div *ngIf="rooms.availableRooms>0 "> <!-- This is called as Optional Channing like an If condition to display-->
+<div *ngIf="hideRooms"> <!-- This is called as Optional Channing like an If condition to display-->
     <!-- ngIf,ngFor and ... are built in directives to change the behaviour of DOM Elements,You need to import the componentModule in ts file of your component-->
    <hinv-roomslist [rooms]="roomsList" [title]="title"
     (selectedRoom)="selectRoom($event)"></hinv-roomslist>
@@ -25,6 +28,13 @@
 
 <button (click)="toggle()">Toggle</button>
 
+<button (click)="editRoom()">Edit Room</button>
+
+<button (click)="deleteRoom()">Delete Room</button>
+
+<h1>
+    {{totalBytes}}
+</h1>
 <h1>MyName is {{myname}}</h1>
 
 <button (click)="click()">Click To See My Name</button> <!-- Event Binding-->
@@ -37,6 +47,7 @@
 
 <button (click)="addItem()">Add Item</button>
 
+
 <div [ngSwitch]="selectedColor">
     <p *ngSwitchCase="'red'">You selected Red</p>
     <p *ngSwitchCase="'blue'">You selected Blue</p>
@@ -44,6 +55,6 @@
     <p *ngSwitchDefault>You select a color</p>
 </div>
 
-<button (click)="changeColor('red')">Red</button>
+<button (click)="changeColor('red')" class="btn btn-danger">Red</button>
 <button (click)="changeColor('blue')">Blue</button>
 <button (click)="changeColor('green')">Green</button>

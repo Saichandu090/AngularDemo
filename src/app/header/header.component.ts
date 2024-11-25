@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   title:string ='';
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    console.log("Header Component got called from the parent component");
   }
 
   constructor() { }
