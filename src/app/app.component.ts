@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.name.nativeElement.innerText="Sai Chandu";
+      //this.name.nativeElement.innerText="Sai Chandu";
       this.localStorage.setItem("name","Hilton Hotel"); // Using value provided by the injector
   }
   // @ViewChild('user',{read: ViewContainerRef}) vcr!: ViewContainerRef;

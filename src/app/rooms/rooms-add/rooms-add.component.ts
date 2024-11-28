@@ -26,6 +26,7 @@ export class RoomsAddComponent {
   successMessage: string = '';
 
   constructor(private roomService: RoomsService) { }
+  
   addRoom(roomsForm:NgForm) {
     this.roomService.addRoom(this.room).subscribe((data) =>
       this.successMessage = 'Room Added Successfully!!')

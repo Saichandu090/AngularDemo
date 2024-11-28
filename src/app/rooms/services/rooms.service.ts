@@ -18,7 +18,6 @@ export class RoomsService {
   roomList : RoomList[] = [];
 
   
-
   getRooms(): Observable<RoomList[]> {
     return this.http.get<RoomList[]>('api/rooms');
   }
